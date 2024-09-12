@@ -1,0 +1,43 @@
+.pricing-card {
+  border: 1px solid #2b4099;
+  padding: 20px;
+  width: 18vw;
+  height: 540px;
+  text-align: left;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.pricing-card:hover {
+  background-color: #e0e0e0; /* Change background color on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  transform: scale(1.05); /* Grow up effect */
+}
+
+.pricing-title {
+  font-weight: 700;
+  font-size: 30px;
+  color: black;
+}
+
+.pricing-price {
+  font-weight: 700;
+  font-size: 60px;
+  color: #2b4099;
+}
+
+.pricing-items {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.pricing-items li {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card-header {
+  border-bottom: 1px solid #2b4099;
+  text-align: center;
+}
