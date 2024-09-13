@@ -266,7 +266,7 @@ function App() {
         </div>
       </div>
       <div className="slide-footer">
-        <img src={logo} alt="logo" onClick={scrollToTop} />
+        <img src={logo} className="App-logo" alt="logo" onClick={scrollToTop} />
         <div style={{ height: "30px" }} />
         <div className="info-container">
           <div className="info-item">
