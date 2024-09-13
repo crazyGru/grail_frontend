@@ -16,10 +16,14 @@ import SignIn from "./Pages/SignIn";
 function App() {
   const navigate = useNavigate();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="App">
       <nav className="App-nav">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="logo" onClick={scrollToTop} />
         <ul className="App-pages">
           <a href="#about" className="App-link">
             About Us
@@ -262,7 +266,7 @@ function App() {
         </div>
       </div>
       <div className="slide-footer">
-        <img src={logo} />
+        <img src={logo} alt="logo" onClick={scrollToTop} />
         <div style={{ height: "30px" }} />
         <div className="info-container">
           <div className="info-item">
