@@ -12,9 +12,54 @@ import PricingCard from "./Components/PricingCard";
 import { useNavigate } from "react-router-dom";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import SignIn from "./Pages/SignIn";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { setUser } from "./redux/userSlice";
 
 function App() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.user);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      dispatch(setUser(JSON.parse(storedUser)));
+    }
+  }, [dispatch]);
+
+  const handlePricingCardClick = async (planId) => {
+    if (!user) {
+      alert("Please sign in to proceed with the purchase.");
+      navigate("/signin");
+      return;
+    }
+
+    console.log(planId, "****");
+
+    try {
+      const response = await fetch(
+        `http://localhost:8000/subscriptions/create-checkout-session?user_mail=${encodeURIComponent(
+          user
+        )}&plan_id=${planId}`,
+        {
+          method: "POST",
+          headers: {
+            accept: "application/json",
+          },
+        }
+      );
+
+      const session = await response.json();
+      if (response.ok) {
+        window.location.href = session.url; // Redirect to Stripe checkout
+      } else {
+        console.error(session.detail);
+      }
+    } catch (error) {
+      console.error("Error creating checkout session:", error);
+    }
+  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -39,18 +84,26 @@ function App() {
           </a>
         </ul>
         <ul className="App-pages">
-          <Link to="/signin" className="App-link">
-            Sign In
-          </Link>
+          {user ? (
+            <span className="App-link">{user}</span>
+          ) : (
+            <Link to="/signin" className="App-link">
+              Sign In
+            </Link>
+          )}
         </ul>
       </nav>
       <div className="slide">
         <div className="slide-first">
           Let the Grail Propel Your Photo <br />
           Booth Biz to the Next Level
-          <div className="button" onClick={() => navigate("/signin")}>
-            Get Started
-          </div>
+          {user ? (
+            <></>
+          ) : (
+            <div className="button" onClick={() => navigate("/signin")}>
+              Get Started
+            </div>
+          )}
           <img src={left} className="left_logo" />
           <img src={right} className="right_logo" />
         </div>
@@ -235,6 +288,9 @@ function App() {
               "3 month key (1 device only)",
               "Border file",
             ]}
+            onClick={() =>
+              handlePricingCardClick("price_1PycsEJlIvt55eMlzHaHkd9a")
+            }
           />
           <PricingCard
             title="Yearly License"
@@ -244,6 +300,9 @@ function App() {
               "Unlimited events usage for 365 days",
               "1 device",
             ]}
+            onClick={() =>
+              handlePricingCardClick("price_1PycseJlIvt55eMlDRFmQDfR")
+            }
           />
           <PricingCard
             title="Monthly License"
@@ -253,6 +312,9 @@ function App() {
               "Unlimited events usage for 30 days",
               "1 device",
             ]}
+            onClick={() =>
+              handlePricingCardClick("price_1Pyct6JlIvt55eMlTbd4SHN9")
+            }
           />
           <PricingCard
             title="Daily License"
@@ -262,6 +324,9 @@ function App() {
               "Unlimited events usage for 24 hours",
               "1 device",
             ]}
+            onClick={() =>
+              handlePricingCardClick("price_1PyctZJlIvt55eMlorJURoTl")
+            }
           />
         </div>
       </div>

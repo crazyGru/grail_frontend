@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./SignIn.css";
 import tl from "../top_left.png";
 import br from "../bottom_right.png";
@@ -6,13 +6,22 @@ import logo from "../logo_.png";
 import { FaGoogle } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../utilis/config";
 import { setUser } from "../redux/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user.user);
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   const handleGoogleSignIn = async () => {
     try {
@@ -35,6 +44,7 @@ const SignIn = () => {
       const data = await response.json();
       if (response.ok) {
         dispatch(setUser(data));
+        localStorage.setItem("user", JSON.stringify(data));
       } else {
         console.error(data.detail);
       }
