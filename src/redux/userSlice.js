@@ -5,6 +5,7 @@ const userSlice = createSlice({
   initialState: {
     user: null,
     token: null,
+    selectedItem: null,
   },
   reducers: {
     setUser: (state, action) => {
@@ -15,8 +16,11 @@ const userSlice = createSlice({
       state.user = null;
       state.token = null;
     },
+    setSelectedItem: (state, action) => {
+      state.selectedItem = action.payload;
+    },
   },
 });
 
-export const { setUser, clearUser } = userSlice.actions;
+export const { setUser, clearUser, setSelectedItem } = userSlice.actions;
 export default userSlice.reducer;

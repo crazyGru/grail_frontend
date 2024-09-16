@@ -1,0 +1,30 @@
+.main-slide {
+  background: radial-gradient(circle, #2b4099, #0e1533);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid black;
+}
+
+.main-slide-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  color: #f8f8ed;
+  font-weight: bolder;
+  font-size: 100px;
+  width: 80vw;
+}
+
+.subtitle {
+  color: #c5cad7;
+  font-size: 30px;
+  width: 70vw;
+}

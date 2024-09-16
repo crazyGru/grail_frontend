@@ -3,21 +3,16 @@
   overflow-x: hidden;
 }
 
-.App-logo {
-  width: 140px;
-  cursor: pointer;
-}
-
 .App-nav {
   width: calc(100vw - 128px);
   display: flex;
   align-items: center;
-  color: white;
+  color: #f8f8ed;
   padding: 10px 64px;
   justify-content: space-between;
   position: fixed;
   top: 0;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid #f8f8ed;
   background-color: #0e1533;
   z-index: 999;
 }
@@ -29,7 +24,7 @@
 
 .App-link {
   font-size: 20px;
-  color: white;
+  color: #f8f8ed;
   text-decoration: none;
   margin-right: 32px;
 }
@@ -56,7 +51,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #f8f8ed;
   font-weight: 700;
   font-size: 80px;
   position: relative;
@@ -87,12 +82,12 @@
   align-items: center;
   justify-content: center;
   border-radius: 24px;
-  background-color: white;
+  background-color: #f8f8ed;
 }
 
 .slide-benefit {
-  background-color: white;
-  padding: 100px;
+  background-color: #f8f8ed;
+  padding: 60px 100px;
   width: calc(100% - 200px);
   display: flex;
   position: relative; /* Ensure the pseudo-element is positioned relative to this element */
@@ -108,8 +103,8 @@
 }
 
 .slide-video {
-  background-color: white;
-  padding: 100px;
+  background-color: #f8f8ed;
+  padding: 68px 100px;
   width: calc(100% - 200px);
   display: flex;
   align-items: center;
@@ -162,8 +157,9 @@ content {
 }
 
 .slide-competitor {
-  padding: 100px;
+  padding: 60px 100px;
   position: relative; /* Ensure the pseudo-element is positioned relative to this element */
+  background-color: #f8f8ed;
 }
 
 .slide-competitor::after {
@@ -179,7 +175,7 @@ content {
   width: 100%;
   height: 300px;
   background-color: #000000;
-  color: white;
+  color: #f8f8ed;
   position: relative;
   padding: 100px;
   display: flex;
@@ -261,10 +257,26 @@ content {
   justify-content: center;
   padding: 100px 0;
   flex-direction: column;
+  background-color: #f8f8ed;
 }
 
 .card-container {
   display: flex;
   width: 100%;
   justify-content: space-evenly;
+}
+
+.App-header {
+  position: fixed; /* Fixes the header at the top */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999; /* Ensures it stays above other content */
+  background-color: #0e1533; /* Match the background color */
+  padding: 10px 64px; /* Adjust padding as needed */
+  display: flex;
+  width: calc(100vw - 128px);
+  border-bottom: 2px solid #f8f8ed;
+  justify-content: space-between;
+  align-items: center;
 }

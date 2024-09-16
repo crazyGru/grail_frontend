@@ -15,7 +15,8 @@ import SignIn from "./Pages/SignIn";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { setUser } from "./redux/userSlice";
-
+import HowItWorks from "./Pages/HowItWorks";
+import Header from "./Components/Header";
 function App() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -34,8 +35,6 @@ function App() {
       navigate("/signin");
       return;
     }
-
-    console.log(planId, "****");
 
     try {
       const response = await fetch(
@@ -67,20 +66,24 @@ function App() {
 
   return (
     <div className="App">
-      <nav className="App-nav">
+      <Header />
+      {/* <nav className="App-nav">
         <img src={logo} className="App-logo" alt="logo" onClick={scrollToTop} />
         <ul className="App-pages">
           <a href="#about" className="App-link">
             About Us
           </a>
-          <a href="#products" className="App-link">
-            Products
+          <a href="#how-it-works" className="App-link">
+            How It Works
+          </a>
+          <a href="#case-study" className="App-link">
+            Case Study
           </a>
           <a href="#pricing" className="App-link">
             Pricing
           </a>
-          <a href="#contact" className="App-link">
-            Contact Us
+          <a href="#order" className="App-link">
+            Order Lenticular
           </a>
         </ul>
         <ul className="App-pages">
@@ -92,7 +95,7 @@ function App() {
             </Link>
           )}
         </ul>
-      </nav>
+      </nav> */}
       <div className="slide">
         <div className="slide-first">
           Let the Grail Propel Your Photo <br />
@@ -144,7 +147,10 @@ function App() {
             <part-h2>Unique Selling Point </part-h2>
             <part-h2>Word-of-mouth</part-h2>
           </div>
-          <div className="slide-part" style={{ paddingLeft: "60px" }}>
+          <div
+            className="slide-part"
+            style={{ paddingLeft: "60px", paddingTop: "40px" }}
+          >
             <part-h3>Word-of-mouth</part-h3>
             <content>
               Unique services often generate buzz, leading to increased
@@ -161,7 +167,10 @@ function App() {
             <part-h2>Premium Pricing </part-h2>
             <part-h2>Perceived Value</part-h2>
           </div>
-          <div className="slide-part" style={{ paddingLeft: "60px" }}>
+          <div
+            className="slide-part"
+            style={{ paddingLeft: "60px", paddingTop: "40px" }}
+          >
             <part-h3>Perceived Value</part-h3>
             <content>
               Lenticular photo booth could be marketed as a luxury or high-end
@@ -179,7 +188,10 @@ function App() {
             <part-h2>Diversification</part-h2>
             <part-h2>Upselling Opportunities</part-h2>
           </div>
-          <div className="slide-part" style={{ paddingLeft: "60px" }}>
+          <div
+            className="slide-part"
+            style={{ paddingLeft: "60px", paddingTop: "40px" }}
+          >
             <part-h3>Diversification</part-h3>
             <content>
               adding lenticular photo booth to your portfolio diversifies your
@@ -203,7 +215,10 @@ function App() {
           >
             <img src={frame_img} className="frame-img" />
           </div>
-          <div className="slide-part" style={{ paddingLeft: "60px" }}>
+          <div
+            className="slide-part"
+            style={{ paddingLeft: "60px", paddingTop: "40px" }}
+          >
             <part-h2>Diversification</part-h2>
             <part-h2>Upselling Opportunities</part-h2>
             <div style={{ height: "40px" }}></div>
@@ -224,7 +239,10 @@ function App() {
             <part-h2>Memorable Experience</part-h2>
             <part-h2>Customized Services</part-h2>
           </div>
-          <div className="slide-part" style={{ paddingLeft: "60px" }}>
+          <div
+            className="slide-part"
+            style={{ paddingLeft: "60px", paddingTop: "40px" }}
+          >
             <part-h3>Memorable Experience</part-h3>
             <content>
               By offering something that leaves a lasting impression, like
@@ -240,7 +258,7 @@ function App() {
           Social media and marketing potential
         </div>
         <div className="slide-container">
-          <div className="slide-part" style={{ paddingLeft: "60px" }}>
+          <div className="slide-part">
             <part-h2>Viral Content</part-h2>
             <part-h2>Marketing Material</part-h2>
             <div style={{ height: "40px" }}></div>
@@ -363,6 +381,7 @@ function AppWrapper() {
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/how-it-works" element={<HowItWorks />} />
       </Routes>
     </Router>
   );
