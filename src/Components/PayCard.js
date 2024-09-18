@@ -1,5 +1,6 @@
 import "./PayCard.css";
 import { LuCheckCircle } from "react-icons/lu";
+import Button from "./Button";
 
 const PayCard = ({ title, price, duration, description, items, selected }) => {
   return (
@@ -11,16 +12,16 @@ const PayCard = ({ title, price, duration, description, items, selected }) => {
       <div>{duration}</div>
       <div className="horizontal-grid" />
       <div className="items-list">
-        {" "}
-        {/* Added unordered list for items */}
         {items.map((item, index) => (
           <div key={index} className="price-item">
             <LuCheckCircle />
             {item}
-          </div> // Render each item
+          </div>
         ))}
       </div>
-      <button className="get-started-button">Get Started</button>
+      <Button onClick={() => console.log("Get Started clicked")}>
+        Get Started
+      </Button>
     </div>
   );
 };

@@ -1,12 +1,14 @@
 import logo from "../logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedItem, setUser } from "../redux/userSlice";
-import { headerItems, redirectTo } from "../utilis/headerItems";
+import { headerItems } from "../utilis/headerItems";
 import "./Header.css";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const selectedItem = useSelector((state) => state.user.selectedItem);
   const user = useSelector((state) => state.user.user);
@@ -20,7 +22,7 @@ const Header = () => {
 
   const handleItemClick = (item) => {
     dispatch(setSelectedItem(item.name));
-    redirectTo(item.link);
+    navigate(item.link);
   };
 
   return (

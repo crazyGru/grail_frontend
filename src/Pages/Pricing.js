@@ -44,6 +44,20 @@ const Pricing = () => {
             "One Device ",
           ]}
         />
+        <PayCard
+          title="One-Time Setup"
+          price="$990"
+          description="Perfect for those who want to experience the full potential of our software without a long-term commitment."
+          items={[
+            "Training manual",
+            "1 time online meet (1 hour)",
+            "1 roller",
+            "500 pcs sheets (4’’ x 4’’)",
+            "App download",
+            "3 month key (1 device only)",
+            "Border file",
+          ]}
+        />
       </div>
       <Footer />
     </div>

@@ -1,9 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./PricingCard.css";
 
-const PricingCard = ({ title, price, items, onClick }) => {
+const PricingCard = ({ title, price, items }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/pricing");
+  };
+
   return (
-    <div className="pricing-card" onClick={onClick}>
+    <div className="pricing-card" onClick={handleClick}>
       <div className="card-header">
         <div className="pricing-title">{title}</div>
         <div className="pricing-price">{price}</div>

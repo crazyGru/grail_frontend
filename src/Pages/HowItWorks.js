@@ -5,6 +5,7 @@ import "./HowItWorks.css";
 import capture from "../1.png";
 import move from "../2.png";
 import paste from "../1.png";
+import { useNavigate } from "react-router-dom";
 
 const ReasonCard = ({ title, content }) => {
   return (
@@ -16,6 +17,7 @@ const ReasonCard = ({ title, content }) => {
 };
 
 const HowItWorks = () => {
+  const navigate = useNavigate();
   return (
     <div className="how-it-works">
       <Header />
@@ -100,7 +102,12 @@ const HowItWorks = () => {
         ></iframe>
       </div>
       <div className="slide-button">
-        <div className="m_button">
+        <div
+          className="m_button"
+          onClick={() => {
+            navigate("/member-access");
+          }}
+        >
           Click Here For The Member's Exclusive Tutorial
         </div>
       </div>

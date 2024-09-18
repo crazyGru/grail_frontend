@@ -1,13 +1,9 @@
 const headerItems = [
-  { name: "About Us", link: "/about-us" },
+  { name: "About Us", link: "/" },
   { name: "How It Works", link: "/how-it-works" },
   { name: "Case Study", link: "/case-study" },
   { name: "Pricing", link: "/pricing" },
-  { name: "Order Lenticular", link: "/order-lenticular" },
+  { name: "Order Lenticular", link: "/" },
 ];
 
-const redirectTo = (link) => {
-  window.location.href = link;
-};
-
-export { headerItems, redirectTo };
+export { headerItems };

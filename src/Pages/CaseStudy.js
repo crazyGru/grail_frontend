@@ -54,7 +54,7 @@ const CaseStudy = () => {
           />
         ))}
       </div>
-      <div className="img-flow-slide">
+      {/* <div className="img-flow-slide">
         <div className="img-flow">
           <MovingCarousel />
         </div>
@@ -74,7 +74,7 @@ const CaseStudy = () => {
             short of extraordinary.
           </div>
         </div>
-      </div>
+      </div> */}
       <Footer />
     </div>
   );

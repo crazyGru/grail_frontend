@@ -10,7 +10,7 @@ import { IoMdMail } from "react-icons/io";
 import { AiFillInstagram } from "react-icons/ai";
 import PricingCard from "./Components/PricingCard";
 import { useNavigate } from "react-router-dom";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SignIn from "./Pages/SignIn";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -21,6 +21,7 @@ import MemberAccess from "./Pages/MemberAccess";
 import MemberExclusive from "./Pages/MemberExclusive";
 import CaseStudy from "./Pages/CaseStudy";
 import Pricing from "./Pages/Pricing";
+import { pricingPlans } from "./utilis/pricingPlans";
 
 function App() {
   const navigate = useNavigate();
@@ -34,37 +35,6 @@ function App() {
     }
   }, [dispatch]);
 
-  const handlePricingCardClick = async (planId) => {
-    if (!user) {
-      alert("Please sign in to proceed with the purchase.");
-      navigate("/signin");
-      return;
-    }
-
-    try {
-      const response = await fetch(
-        `http://localhost:8000/subscriptions/create-checkout-session?user_mail=${encodeURIComponent(
-          user
-        )}&plan_id=${planId}`,
-        {
-          method: "POST",
-          headers: {
-            accept: "application/json",
-          },
-        }
-      );
-
-      const session = await response.json();
-      if (response.ok) {
-        window.location.href = session.url; // Redirect to Stripe checkout
-      } else {
-        console.error(session.detail);
-      }
-    } catch (error) {
-      console.error("Error creating checkout session:", error);
-    }
-  };
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -72,35 +42,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* <nav className="App-nav">
-        <img src={logo} className="App-logo" alt="logo" onClick={scrollToTop} />
-        <ul className="App-pages">
-          <a href="#about" className="App-link">
-            About Us
-          </a>
-          <a href="#how-it-works" className="App-link">
-            How It Works
-          </a>
-          <a href="#case-study" className="App-link">
-            Case Study
-          </a>
-          <a href="#pricing" className="App-link">
-            Pricing
-          </a>
-          <a href="#order" className="App-link">
-            Order Lenticular
-          </a>
-        </ul>
-        <ul className="App-pages">
-          {user ? (
-            <span className="App-link">{user}</span>
-          ) : (
-            <Link to="/signin" className="App-link">
-              Sign In
-            </Link>
-          )}
-        </ul>
-      </nav> */}
       <div className="slide">
         <div className="slide-first">
           Let the Grail Propel Your Photo <br />
@@ -299,58 +240,14 @@ function App() {
         <div className="competitor-h1">Pricing Plan</div>
         <div style={{ height: "30px" }} />
         <div className="card-container">
-          <PricingCard
-            title="1 Time Setup"
-            price="$990"
-            items={[
-              "Training manual",
-              "1 time online meet (1 hour)",
-              "1 roller",
-              "500 pcs sheets (4’’ x 4’’)",
-              "App download",
-              "3 month key (1 device only)",
-              "Border file",
-            ]}
-            onClick={() =>
-              handlePricingCardClick("price_1PycsEJlIvt55eMlzHaHkd9a")
-            }
-          />
-          <PricingCard
-            title="Yearly License"
-            price="$1500"
-            items={[
-              "Yearly subscription",
-              "Unlimited events usage for 365 days",
-              "1 device",
-            ]}
-            onClick={() =>
-              handlePricingCardClick("price_1PycseJlIvt55eMlDRFmQDfR")
-            }
-          />
-          <PricingCard
-            title="Monthly License"
-            price="$150"
-            items={[
-              "Monthly subscription",
-              "Unlimited events usage for 30 days",
-              "1 device",
-            ]}
-            onClick={() =>
-              handlePricingCardClick("price_1Pyct6JlIvt55eMlTbd4SHN9")
-            }
-          />
-          <PricingCard
-            title="Daily License"
-            price="$40"
-            items={[
-              "Daily subscription",
-              "Unlimited events usage for 24 hours",
-              "1 device",
-            ]}
-            onClick={() =>
-              handlePricingCardClick("price_1PyctZJlIvt55eMlorJURoTl")
-            }
-          />
+          {pricingPlans.map((plan) => (
+            <PricingCard
+              key={plan.id}
+              title={plan.title}
+              price={plan.price}
+              items={plan.items}
+            />
+          ))}
         </div>
       </div>
       <div className="slide-footer">
@@ -374,7 +271,7 @@ function App() {
             @thegrail
           </div>
         </div>
-        <img src={right} className="right_logo" />
+        <img src={right} className="right_logo" alt="logo" />
       </div>
     </div>
   );

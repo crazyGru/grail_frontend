@@ -5,7 +5,7 @@
   border-radius: 8px;
   position: relative;
   padding: 16px;
-  width: 450px;
+  width: 20%;
   height: 650px;
   display: flex;
   align-items: center;
@@ -15,7 +15,7 @@
 
 .pay-card.selected {
   border: 3px solid #7e58fc;
-  width: 500px;
+  width: 25%;
   height: 700px;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .horizontal-grid {
-  width: inherit;
+  width: -webkit-fill-available;
   border-bottom: 1px solid #2b4099;
 }
 
