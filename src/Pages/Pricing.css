@@ -1,0 +1,10 @@
+.pay-card-container {
+  padding: 50px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.pricing-page {
+  overflow-x: hidden;
+}

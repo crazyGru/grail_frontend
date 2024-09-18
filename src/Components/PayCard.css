@@ -1,0 +1,92 @@
+.pay-card {
+  background-color: white;
+  color: #2b4099;
+  border: 1px solid;
+  border-radius: 8px;
+  position: relative;
+  padding: 16px;
+  width: 450px;
+  height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.pay-card.selected {
+  border: 3px solid #7e58fc;
+  width: 500px;
+  height: 700px;
+}
+
+.badge {
+  position: absolute;
+  top: -15px; /* Adjusted to position above the card */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Shift left by half its width */
+  background-color: #7e58fc; /* Example color for badge */
+  padding: 5px;
+  border-radius: 5px;
+  color: #f8f8ed;
+  font-weight: 500;
+}
+
+.description {
+  text-align: center;
+  width: auto;
+  color: #6c6b6f;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.horizontal-grid {
+  width: inherit;
+  border-bottom: 1px solid #2b4099;
+}
+
+.pay-price {
+  color: #2b4099;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.pay-title {
+  font-weight: 700;
+  font-size: 22px;
+  color: black;
+}
+
+.items-list {
+  font-size: medium;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: left;
+  padding: 16px;
+}
+
+.price-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  padding-left: 30px;
+  margin: 12px;
+}
+
+.get-started-button {
+  background-color: #2b4099; /* Background color */
+  border-radius: 8px; /* Border radius */
+  border: 1px solid; /* Border */
+  color: white; /* Text color */
+  padding: 10px 20px; /* Padding for button */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.get-started-button:hover {
+  background-color: #1a2a4d; /* Darker shade on hover */
+}
