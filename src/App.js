@@ -19,6 +19,9 @@ import HowItWorks from "./Pages/HowItWorks";
 import Header from "./Components/Header";
 import MemberAccess from "./Pages/MemberAccess";
 import MemberExclusive from "./Pages/MemberExclusive";
+import CaseStudy from "./Pages/CaseStudy";
+import Pricing from "./Pages/Pricing";
+
 function App() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -386,6 +389,8 @@ function AppWrapper() {
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/member-access" element={<MemberAccess />} />
         <Route path="/member-exclusive" element={<MemberExclusive />} />
+        <Route path="/case-study" element={<CaseStudy />} />
+        <Route path="/pricing" element={<Pricing />} />
       </Routes>
     </Router>
   );

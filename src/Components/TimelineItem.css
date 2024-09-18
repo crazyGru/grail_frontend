@@ -1,0 +1,75 @@
+.container {
+  width: 100vw;
+  position: relative;
+  display: flex;
+}
+
+.container .item {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 40px;
+  justify-content: center;
+  color: #15357d;
+
+  &.even {
+    /* For even indices */
+    flex-direction: column; /* Original layout */
+  }
+
+  &.odd {
+    /* For odd indices */
+    flex-direction: column-reverse; /* Swap description and year, title */
+  }
+}
+
+.container .item.time {
+  align-items: flex-end;
+  color: #2b4099;
+  text-align: right;
+}
+
+.container .h-divider {
+  left: calc(50% - 2px);
+  top: 0;
+  position: absolute;
+  height: 100%;
+  width: 4px;
+  background-color: #15357d;
+}
+
+.container .circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background-color: #d9d9d9;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.container .circle.small {
+  width: 30px;
+  height: 30px;
+  background-color: #15357d;
+}
+
+/* .item {
+  color: #0d0c07;
+  font-weight: 500;
+  font-size: 18px;
+} */
+
+.item_year {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.item_title {
+  font-size: 32px;
+  font-weight: 700;
+}

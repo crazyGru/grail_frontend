@@ -1,0 +1,36 @@
+/* body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+} */
+
+.scroll-container {
+  display: flex;
+  overflow: hidden;
+  height: 100%; /* Full viewport height */
+}
+
+.scroll-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  animation: scroll 15s linear infinite; /* Infinite scrolling animation */
+}
+
+.scroll-image {
+  width: 100%;
+  /* height: %; Adjust the height to fit images evenly */
+  background-size: cover;
+  background-position: center;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
