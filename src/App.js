@@ -17,6 +17,8 @@ import { useEffect } from "react";
 import { setUser } from "./redux/userSlice";
 import HowItWorks from "./Pages/HowItWorks";
 import Header from "./Components/Header";
+import MemberAccess from "./Pages/MemberAccess";
+import MemberExclusive from "./Pages/MemberExclusive";
 function App() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -382,6 +384,8 @@ function AppWrapper() {
         <Route path="/" element={<App />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
+        <Route path="/member-access" element={<MemberAccess />} />
+        <Route path="/member-exclusive" element={<MemberExclusive />} />
       </Routes>
     </Router>
   );

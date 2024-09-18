@@ -71,7 +71,7 @@ const HowItWorks = () => {
         </div>
         <div className="slide-step">
           <div style={{ width: "50%" }}>
-            <img src={capture} className="App-logo" alt="logo" />
+            <img src={paste} className="App-logo" alt="logo" />
           </div>
           <div className="step-info">
             <div className="step-header">Step 3: Paste & Roll </div>

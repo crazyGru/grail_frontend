@@ -1,0 +1,15 @@
+.left_logo {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+.right_logo {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.secondary-slide {
+  background-color: #f8f8ed;
+}
