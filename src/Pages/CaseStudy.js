@@ -1,7 +1,6 @@
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import MainSlide from "../Components/MainSlide";
-import MovingCarousel from "../Components/MovingCarousel";
 import "./CaseStudy.css";
 import TimelineItem from "../Components/TimelineItem";
 

@@ -53,8 +53,8 @@ function App() {
               Get Started
             </div>
           )}
-          <img src={left} className="left_logo" />
-          <img src={right} className="right_logo" />
+          <img src={left} className="left_logo" alt="" />
+          <img src={right} className="right_logo" alt="" />
         </div>
       </div>
       <div className="slide-video">
@@ -83,7 +83,7 @@ function App() {
           </div>
         </div>
         <div className="slide-part" style={{ paddingLeft: "20px" }}>
-          <img src={benefit_logo} className="benefit-img" />
+          <img src={benefit_logo} className="benefit-img" alt="" />
         </div>
       </div>
       <div className="slide-competitor">
@@ -159,7 +159,7 @@ function App() {
               justifyContent: "center",
             }}
           >
-            <img src={frame_img} className="frame-img" />
+            <img src={frame_img} className="frame-img" alt="logo" />
           </div>
           <div
             className="slide-part"
