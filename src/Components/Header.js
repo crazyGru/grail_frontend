@@ -1,11 +1,12 @@
 import logo from "../logo.png";
 import { useDispatch, useSelector } from "react-redux";
-import { setSelectedItem, setUser } from "../redux/userSlice";
+import { clearUser, setSelectedItem, setUser } from "../redux/userSlice";
 import { headerItems } from "../utilis/headerItems";
 import "./Header.css";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { FaSignOutAlt } from "react-icons/fa";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -23,6 +24,12 @@ const Header = () => {
   const handleItemClick = (item) => {
     dispatch(setSelectedItem(item.name));
     navigate(item.link);
+  };
+
+  const handleSignOut = () => {
+    dispatch(clearUser()); // Clear user from Redux store
+    localStorage.removeItem("user"); // Remove user from local storage
+    navigate("/signin"); // Redirect to sign-in page
   };
 
   return (
@@ -46,7 +53,14 @@ const Header = () => {
       </div>
       <ul className="App-pages">
         {user ? (
-          <span className="App-link">{user}</span>
+          <>
+            <span className="App-link">{user}</span>
+            <FaSignOutAlt
+              color="white"
+              className="item-logout"
+              onClick={handleSignOut}
+            />
+          </>
         ) : (
           <Link to="/signin" className="App-link">
             Sign In

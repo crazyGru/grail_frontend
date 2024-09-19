@@ -1,8 +1,48 @@
 import "./PayCard.css";
 import { LuCheckCircle } from "react-icons/lu";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
+import { fetchAPI } from "../utilis/api";
+import { useSelector } from "react-redux";
 
-const PayCard = ({ title, price, duration, description, items, selected }) => {
+const PayCard = ({
+  title,
+  price,
+  duration,
+  description,
+  items,
+  selected,
+  planId,
+}) => {
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user.user);
+
+  const handleGetStarted = async () => {
+    if (!user) {
+      alert("Please sign in to proceed.");
+      navigate("/signin");
+      return;
+    }
+
+    try {
+      const session = await fetchAPI(
+        `/subscriptions/create-checkout-session?user_mail=${encodeURIComponent(
+          user
+        )}&plan_id=${planId}`,
+        {
+          method: "POST",
+          headers: {
+            accept: "application/json",
+          },
+          body: JSON.stringify({}), // Empty body as per the sample
+        }
+      );
+      window.location.href = session.url; // Redirect to Stripe checkout
+    } catch (error) {
+      console.error("Error creating checkout session:", error);
+    }
+  };
+
   return (
     <div className={`pay-card ${selected ? "selected" : ""}`}>
       {selected && <div className="badge">⭐Most Popular</div>}
@@ -19,9 +59,7 @@ const PayCard = ({ title, price, duration, description, items, selected }) => {
           </div>
         ))}
       </div>
-      <Button onClick={() => console.log("Get Started clicked")}>
-        Get Started
-      </Button>
+      <Button onClick={handleGetStarted}>Get Started</Button>
     </div>
   );
 };
