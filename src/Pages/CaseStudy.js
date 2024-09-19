@@ -42,7 +42,7 @@ const CaseStudy = () => {
     <div className="case-study">
       <Header />
       <MainSlide title="The Holograil’s Journey to Success "></MainSlide>
-      <div>
+      <div className="time-line-container">
         {timelineData.map((item, index) => (
           <TimelineItem
             key={index}

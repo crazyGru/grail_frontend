@@ -1,7 +1,9 @@
 .container {
-  width: 100vw;
+  padding: 20px 0px;
+  width: 80vw;
   position: relative;
   display: flex;
+  font-size: large;
 }
 
 .container .item {
@@ -25,7 +27,6 @@
 
 .container .item.time {
   align-items: flex-end;
-  color: #2b4099;
   text-align: right;
 }
 
@@ -65,7 +66,7 @@
 } */
 
 .item_year {
-  font-size: 40px;
+  font-size: 56px;
   font-weight: 700;
 }
 

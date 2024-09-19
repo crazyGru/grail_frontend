@@ -46,11 +46,13 @@ const PayCard = ({
   return (
     <div className={`pay-card ${selected ? "selected" : ""}`}>
       {selected && <div className="badge">⭐Most Popular</div>}
-      <div className="pay-title">{title}</div>
-      <div className="pay-price">{price}</div>
-      <div className="description">{description}</div>
-      <div>{duration}</div>
-      <div className="horizontal-grid" />
+      <div className="pay-card-header">
+        <div className="pay-title">{title}</div>
+        <div className="pay-price">{price}</div>
+        <div className="description">{description}</div>
+        <div>{duration}</div>
+      </div>
+      {/* <div className="horizontal-grid" /> */}
       <div className="items-list">
         {items.map((item, index) => (
           <div key={index} className="price-item">
@@ -59,7 +61,9 @@ const PayCard = ({
           </div>
         ))}
       </div>
-      <Button onClick={handleGetStarted}>Get Started</Button>
+      <div className="button-container">
+        <Button onClick={handleGetStarted}>Get Started</Button>
+      </div>
     </div>
   );
 };

@@ -22,7 +22,7 @@ import MemberExclusive from "./Pages/MemberExclusive";
 import CaseStudy from "./Pages/CaseStudy";
 import Pricing from "./Pages/Pricing";
 import { pricingPlans } from "./utilis/pricingPlans";
-import MainSlide from "./Components/MainSlide";
+import Success from "./Pages/Success";
 
 function App() {
   const navigate = useNavigate();
@@ -289,6 +289,7 @@ function AppWrapper() {
         <Route path="/member-exclusive" element={<MemberExclusive />} />
         <Route path="/case-study" element={<CaseStudy />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/success" element={<Success />} />
       </Routes>
     </Router>
   );
