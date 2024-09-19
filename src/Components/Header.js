@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FaSignOutAlt } from "react-icons/fa";
+import { RxAvatar } from "react-icons/rx";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ const Header = () => {
   const handleItemClick = (item) => {
     dispatch(setSelectedItem(item.name));
     navigate(item.link);
+    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const handleSignOut = () => {
@@ -51,22 +53,23 @@ const Header = () => {
           </div>
         ))}
       </div>
-      <ul className="App-pages">
+      <div className="App-pages">
         {user ? (
-          <>
-            <span className="App-link">{user}</span>
+          <div className="user-signin-info">
+            {/* <span className="App-link">{user}</span> */}
+            <RxAvatar color="white" size={28} />
             <FaSignOutAlt
               color="white"
               className="item-logout"
               onClick={handleSignOut}
             />
-          </>
+          </div>
         ) : (
           <Link to="/signin" className="App-link">
             Sign In
           </Link>
         )}
-      </ul>
+      </div>
     </div>
   );
 };

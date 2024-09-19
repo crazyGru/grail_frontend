@@ -22,6 +22,7 @@ import MemberExclusive from "./Pages/MemberExclusive";
 import CaseStudy from "./Pages/CaseStudy";
 import Pricing from "./Pages/Pricing";
 import { pricingPlans } from "./utilis/pricingPlans";
+import MainSlide from "./Components/MainSlide";
 
 function App() {
   const navigate = useNavigate();

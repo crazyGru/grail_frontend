@@ -28,7 +28,7 @@ const HowItWorks = () => {
       <div className="slide-steps">
         <div className="slide-step">
           <div style={{ width: "50%" }}>
-            <img src={capture} className="App-logo" alt="logo" />
+            <img className="step-img" src={capture} alt="logo" />
           </div>
           <div className="step-info">
             <div className="step-header">Step 1: Capture the Moment </div>
@@ -68,12 +68,12 @@ const HowItWorks = () => {
             </div>
           </div>
           <div style={{ width: "50%" }}>
-            <img src={move} className="App-logo" alt="logo" />
+            <img className="step-img" src={move} alt="logo" />
           </div>
         </div>
         <div className="slide-step">
           <div style={{ width: "50%" }}>
-            <img src={paste} className="App-logo" alt="logo" />
+            <img className="step-img" src={paste} alt="logo" />
           </div>
           <div className="step-info">
             <div className="step-header">Step 3: Paste & Roll </div>
@@ -112,7 +112,7 @@ const HowItWorks = () => {
         </div>
       </div>
       <div className="why-choose-us">
-        <h1>Why Choose Us?</h1>
+        <div className="why-choose-us-title">Why Choose Us?</div>
         <div className="reason-container">
           <ReasonCard
             title="Unmatched Clarity"

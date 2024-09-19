@@ -18,9 +18,17 @@ h1 {
   color: #f8f8ed;
 }
 
+.why-choose-us-title {
+  font-size: 52px;
+  color: #f8f8ed;
+  font-weight: 500;
+  padding-bottom: 40px;
+}
+
 .card_header {
   font-weight: 900;
-  font-size: large;
+  font-size: x-large;
+  margin-bottom: 12px;
 }
 
 .card_title {
@@ -28,15 +36,17 @@ h1 {
   font-size: medium;
   color: #2b4099;
   width: auto;
+  text-align: justify;
 }
 
 .reason_card {
   background-color: #f8f8ed;
   color: #2b4099;
-  width: calc(25vw - 100px);
+  width: calc(25vw - 72px);
   border-radius: 18px;
   border: 2px solid white;
-  padding: 50px;
+  padding: 36px;
+  min-height: 200px;
 }
 
 .reason-container {
@@ -44,6 +54,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  height: max-content;
 }
 
 .slide-steps {
@@ -92,4 +103,10 @@ h1 {
   border-radius: 10px;
   border: 1px solid purple;
   cursor: pointer;
+  font-size: large;
+  margin: 20px 0px;
+}
+
+.step-img {
+  height: 40vw;
 }

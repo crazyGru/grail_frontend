@@ -15,11 +15,11 @@ const PricingCard = ({ title, price, items }) => {
         <div className="pricing-title">{title}</div>
         <div className="pricing-price">{price}</div>
       </div>
-      <ul className="pricing-items">
+      <div className="pricing-items">
         {items.map((item, index) => (
           <li key={index}>{item}</li>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
