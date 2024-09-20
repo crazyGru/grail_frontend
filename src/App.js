@@ -40,36 +40,6 @@ function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  async function handleDownload() {
-    try {
-      const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/subscriptions/download-app`,
-        {
-          method: "GET",
-          headers: {
-            accept: "application/json",
-          },
-        }
-      );
-
-      if (response.ok) {
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "holograil.zip";
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        console.log("Download initiated");
-      } else {
-        console.error("Error downloading file:", response.status);
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  }
-
   return (
     <div className="App">
       <Header />
@@ -84,9 +54,12 @@ function App() {
               Get Started
             </div>
           )}
-          <div className="app-download" onClick={handleDownload}>
+          <a
+            href={`${process.env.REACT_APP_BACKEND_URL}/subscriptions/download-app`}
+            className="app-download"
+          >
             Click here to Download the App
-          </div>
+          </a>
           <img src={left} className="left_logo" alt="" />
           <img src={right} className="right_logo" alt="" />
         </div>
