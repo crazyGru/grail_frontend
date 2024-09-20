@@ -43,7 +43,7 @@ function App() {
   async function handleDownload() {
     try {
       const response = await fetch(
-        "http://ec2-52-90-200-142.compute-1.amazonaws.com/subscriptions/download-app",
+        `${process.env.REACT_APP_BACKEND_URL}/subscriptions/download-app`,
         {
           method: "GET",
           headers: {
