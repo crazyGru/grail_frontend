@@ -40,6 +40,22 @@ function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  async function handleDownload() {
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/subscriptions/download-app`
+      );
+
+      if (response.ok) {
+        console.log("Download initiated");
+      } else {
+        console.error("Error downloading file:", response.status);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+
   return (
     <div className="App">
       <Header />
@@ -54,6 +70,9 @@ function App() {
               Get Started
             </div>
           )}
+          <div className="app-download" onClick={handleDownload}>
+            Click here to Download the App
+          </div>
           <img src={left} className="left_logo" alt="" />
           <img src={right} className="right_logo" alt="" />
         </div>

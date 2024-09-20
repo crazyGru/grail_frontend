@@ -280,3 +280,22 @@ content {
   justify-content: space-between;
   align-items: center;
 }
+
+.app-download {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2b4099; /* Change to your desired color */
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: medium;
+  margin-top: 20px;
+}
+
+.app-download:hover {
+  background-color: #1a2b5d; /* Darker shade for hover effect */
+}
