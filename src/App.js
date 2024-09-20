@@ -43,10 +43,24 @@ function App() {
   async function handleDownload() {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/subscriptions/download-app`
+        "http://ec2-52-90-200-142.compute-1.amazonaws.com/subscriptions/download-app",
+        {
+          method: "GET",
+          headers: {
+            accept: "application/json",
+          },
+        }
       );
 
       if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "holograil.zip";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
         console.log("Download initiated");
       } else {
         console.error("Error downloading file:", response.status);
