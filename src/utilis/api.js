@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://ec2-52-90-200-142.compute-1.amazonaws.com";
+const API_BASE_URL = "https://api.thegrail.app";
 
 const fetchAPI = async (endpoint, options) => {
   const response = await fetch(`${API_BASE_URL}${endpoint}`, options);
