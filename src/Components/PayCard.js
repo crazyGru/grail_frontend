@@ -25,7 +25,7 @@ const PayCard = ({
     }
 
     try {
-      const session = await fetchAPI(
+      const session = await fetch(
         `${
           process.env.REACT_APP_BACKEND_URL
         }/subscriptions/create-checkout-session?user_mail=${encodeURIComponent(
