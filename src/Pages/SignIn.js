@@ -65,14 +65,6 @@ const SignIn = () => {
           <FaGoogle style={{ marginRight: "8px" }} />{" "}
           <span>Continue with Google</span>
         </div>
-        <div className="sign-button">
-          <FaFacebook style={{ marginRight: "8px" }} />{" "}
-          <span>Continue with Facebook</span>
-        </div>
-        <div className="sign-button">
-          <FaInstagramSquare style={{ marginRight: "8px" }} />{" "}
-          <span>Continue with Instagram</span>
-        </div>
       </div>
     </div>
   );
