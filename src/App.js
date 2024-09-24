@@ -1,13 +1,8 @@
-import logo from "./logo.png";
 import left from "./left.png";
 import right from "./right.png";
 import benefit_logo from "./benefit.png";
 import frame_img from "./frame.png";
 import "./App.css";
-import { FaLocationDot } from "react-icons/fa6";
-import { FaPhone } from "react-icons/fa6";
-import { IoMdMail } from "react-icons/io";
-import { AiFillInstagram } from "react-icons/ai";
 import PricingCard from "./Components/PricingCard";
 import { useNavigate } from "react-router-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -23,6 +18,8 @@ import CaseStudy from "./Pages/CaseStudy";
 import Pricing from "./Pages/Pricing";
 import { pricingPlans } from "./utilis/pricingPlans";
 import Success from "./Pages/Success";
+import Footer from "./Components/Footer";
+import MainSlide from "./Components/MainSlide";
 
 function App() {
   const navigate = useNavigate();
@@ -43,27 +40,23 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="slide">
-        <div className="slide-first">
-          Let the Grail Propel Your Photo <br />
-          Booth Biz to the Next Level
-          {user ? (
-            <></>
-          ) : (
-            <div className="button" onClick={() => navigate("/signin")}>
-              Get Started
-            </div>
-          )}
-          <a
-            href={`${process.env.REACT_APP_BACKEND_URL}/subscriptions/download-app`}
-            className="app-download"
-          >
-            Click here to Download the App
-          </a>
-          <img src={left} className="left_logo" alt="" />
-          <img src={right} className="right_logo" alt="" />
-        </div>
-      </div>
+      <MainSlide
+        title={"Let the Grail Propel Your Photo Booth Biz to the Next Level"}
+      >
+        {user ? (
+          <></>
+        ) : (
+          <div className="button" onClick={() => navigate("/signin")}>
+            Get Started
+          </div>
+        )}
+        <a
+          href={`${process.env.REACT_APP_BACKEND_URL}/subscriptions/download-app`}
+          className="app-download"
+        >
+          Click here to Download the App
+        </a>
+      </MainSlide>
       <div className="slide-video">
         <iframe
           width="1440"
@@ -75,22 +68,26 @@ function App() {
           allowFullScreen
         ></iframe>
       </div>
-      <div className="slide-benefit">
-        <div className="slide-part" style={{ paddingRight: "20px" }}>
-          <div className="benefit-h1">
+      <div className="slide-benefit flex flex-col md:flex-row items-center justify-between bg-f8f8ed p-8 md:p-16">
+        <div className="slide-part w-full md:w-1/2 pr-0 md:pr-8">
+          <h2 className="benefit-h1 text-3xl md:text-5xl font-bold text-[#2b4099] mb-4">
             Benefit from years of our expertise in photo booth industry
-          </div>
-          <div className="benefit-content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco labrois niri,
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco labrois
-          </div>
+          </h2>
+          <p className="benefit-content text-lg md:text-2xl text-black leading-relaxed">
+            With a proven track record of powering countless successful events,
+            we bring cutting-edge technology and deep industry insights to every
+            project. Our expertise ensures seamless software integration,
+            exceptional photo clarity, and innovative solutions that elevate
+            your event experience, making every moment memorable. Choose us for
+            reliability, innovation, and results that stand out.
+          </p>
         </div>
-        <div className="slide-part" style={{ paddingLeft: "20px" }}>
-          <img src={benefit_logo} className="benefit-img" alt="" />
+        <div className="slide-part w-full md:w-1/2 pl-0 md:pl-8">
+          <img
+            src={benefit_logo}
+            className="benefit-img w-full h-auto"
+            alt=""
+          />
         </div>
       </div>
       <div className="slide-competitor">
@@ -244,8 +241,7 @@ function App() {
         </div>
       </div>
       <div className="slide-pricing">
-        <div className="competitor-h1">Pricing Plan</div>
-        <div style={{ height: "30px" }} />
+        <div className="competitor-h1 mb-8">Pricing Plan</div>
         <div className="card-container">
           {pricingPlans.map((plan) => (
             <PricingCard
@@ -257,29 +253,7 @@ function App() {
           ))}
         </div>
       </div>
-      <div className="slide-footer">
-        <img src={logo} className="App-logo" alt="logo" onClick={scrollToTop} />
-        <div style={{ height: "30px" }} />
-        <div className="info-container">
-          <div className="info-item">
-            <FaLocationDot className="icon" />
-            140 Paya Lebar Rd, #06-23, Singapore 409015
-          </div>
-          <div className="info-item">
-            <FaPhone className="icon" />
-            +65 9187 2817
-          </div>
-          <div className="info-item">
-            <IoMdMail className="icon" />
-            hello@thegrail.com
-          </div>
-          <div className="info-item">
-            <AiFillInstagram className="icon" />
-            @thegrail
-          </div>
-        </div>
-        <img src={right} className="right_logo" alt="logo" />
-      </div>
+      <Footer />
     </div>
   );
 }

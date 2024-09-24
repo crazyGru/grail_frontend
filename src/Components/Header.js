@@ -13,7 +13,7 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const selectedItem = useSelector((state) => state.user.selectedItem);
-  const user = useSelector((state) => state.user.user);
+  const user = useSelector((state) => state.user);
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -35,10 +35,10 @@ const Header = () => {
   };
 
   return (
-    <div className="App-header">
+    <header className="App-header">
       <img
         src={logo}
-        className="App-logo"
+        className="h-4 cursor-pointer"
         alt="logo"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       />
@@ -56,7 +56,6 @@ const Header = () => {
       <div className="App-pages">
         {user ? (
           <div className="user-signin-info">
-            {/* <span className="App-link">{user}</span> */}
             <RxAvatar color="white" size={28} />
             <FaSignOutAlt
               color="white"
@@ -70,7 +69,7 @@ const Header = () => {
           </Link>
         )}
       </div>
-    </div>
+    </header>
   );
 };
 

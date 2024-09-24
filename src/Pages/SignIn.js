@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./SignIn.css";
 import tl from "../top_left.png";
 import br from "../bottom_right.png";
@@ -14,6 +14,10 @@ const SignIn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.user);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isSignUp, setIsSignUp] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -51,6 +55,54 @@ const SignIn = () => {
     }
   };
 
+  const handleEmailSignIn = async (e) => {
+    e.preventDefault();
+    try {
+      const url = `${process.env.REACT_APP_BACKEND_URL}/users/${
+        isSignUp ? "signup" : "signin"
+      }`;
+      const body = isSignUp
+        ? JSON.stringify({
+            username: email,
+            email: email,
+            password: password,
+            avatar_url: "",
+          })
+        : JSON.stringify({
+            username: email,
+            password: password,
+          });
+
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          accept: "application/json",
+        },
+        body,
+      });
+
+      const data = await response.json();
+      console.log(data);
+
+      if (response.ok) {
+        if (isSignUp) {
+          // Handle sign-up success
+          dispatch(setUser(data));
+          localStorage.setItem("user", JSON.stringify(data));
+        } else {
+          // Handle sign-in success
+          localStorage.setItem("access_token", data.access_token);
+          dispatch(setUser(data));
+        }
+      } else {
+        console.error(data.detail);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="page-signin">
       <img src={tl} className="tl_logo" alt="Top Left" />
@@ -59,10 +111,51 @@ const SignIn = () => {
         <div className="welcome">
           Welcome To <img src={logo} className="logo" alt="Logo" />
         </div>
-        <div className="sign-button" onClick={handleGoogleSignIn}>
-          <FaGoogle style={{ marginRight: "8px" }} />{" "}
-          <span>Continue with Google</span>
-        </div>
+        <form
+          onSubmit={handleEmailSignIn}
+          className="mt-6 flex flex-col space-y-4 z-50"
+        >
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="border border-gray-300 p-2 px-4 rounded-full w-full"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="border border-gray-300 p-2 px-4  rounded-full w-full"
+            required
+          />
+          <button
+            type="submit"
+            className="bg-blue-950 text-white p-2  rounded-full font-semibold w-full"
+          >
+            {isSignUp ? "Sign Up" : "Sign In"}
+          </button>
+          <div className="flex items-center justify-center mt-4">
+            <span className="text-gray-600">or</span>
+          </div>
+          <button
+            className="bg-blue-950 sign-button"
+            onClick={handleGoogleSignIn}
+          >
+            <FaGoogle style={{ marginRight: "8px" }} />{" "}
+            <span>Continue with Google</span>
+          </button>
+          <button
+            onClick={() => setIsSignUp(!isSignUp)}
+            className="mt-4 text-blue-500"
+          >
+            {isSignUp
+              ? "Already have an account? Sign In"
+              : "Don't have an account? Sign Up"}
+          </button>
+        </form>
       </div>
     </div>
   );

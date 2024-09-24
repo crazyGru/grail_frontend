@@ -23,6 +23,10 @@
   z-index: 1;
 }
 
+.logo {
+  margin-left: 10px;
+}
+
 .welcome {
   font-weight: 700;
   font-size: 50px;
@@ -40,15 +44,13 @@
 
 .sign-button {
   z-index: 11;
+  padding: 8px;
   margin-top: 20px;
-  height: 50px;
   width: 20vw;
-  background-color: #2b4099;
+  background-color: rgb(23 37 84);
   color: white;
   border-radius: 99px;
-  border: 1px solid black;
   font-weight: 700;
-  font-size: 22px;
   text-align: center;
   display: flex;
   align-items: center;

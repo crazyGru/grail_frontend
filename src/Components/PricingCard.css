@@ -1,11 +1,12 @@
 .pricing-card {
   border: 1px solid #2b4099;
-  padding: 20px;
-  width: 18vw;
+  padding: 10px;
+  width: 20vw;
   height: 540px;
   text-align: left;
   background-color: #f9f9f9;
   cursor: pointer;
+  min-width: 300px;
 }
 
 .pricing-card:hover {

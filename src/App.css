@@ -22,6 +22,10 @@
   gap: 1rem;
 }
 
+.App-logo {
+  height: 24px;
+}
+
 .App-link {
   font-size: 20px;
   color: #f8f8ed;
@@ -39,7 +43,7 @@
 }
 
 .slide {
-  background: radial-gradient(circle, #2b4099, #0e1533);
+  background: radial-gradient(circle, #2b4099, rgb(23 37 84));
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -87,8 +91,8 @@
 
 .slide-benefit {
   background-color: #f8f8ed;
-  padding: 60px 100px;
-  width: calc(100% - 200px);
+  padding: 60px 100px; /* Adjusted for mobile */
+  width: 100%;
   display: flex;
   position: relative; /* Ensure the pseudo-element is positioned relative to this element */
 }
@@ -97,15 +101,15 @@
   content: "";
   position: absolute;
   bottom: 0;
-  left: 100px; /* Match the left padding */
-  right: 100px; /* Match the right padding */
+  left: 20px; /* Match the left padding */
+  right: 20px; /* Match the right padding */
   border-bottom: 2px solid black;
 }
 
 .slide-video {
   background-color: #f8f8ed;
   padding: 68px 100px;
-  width: calc(100% - 200px);
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -198,11 +202,11 @@ content {
   text-align: left;
 }
 
-.benefit-h1 {
-  color: #2b4099;
-  font-weight: 700;
-  font-size: 68px;
-  text-align: left;
+.benefit-content {
+  color: #000000;
+  font-size: 1rem; /* Responsive font size */
+  text-align: justify;
+  margin-top: 1rem; /* Space above the content */
 }
 
 .benefit-content {
@@ -213,7 +217,8 @@ content {
 }
 
 .benefit-img {
-  height: calc(100%);
+  width: 100%; /* Full width for responsiveness */
+  height: auto; /* Maintain aspect ratio */
 }
 
 /* Custom scrollbar styles */
@@ -272,7 +277,7 @@ content {
   left: 0;
   right: 0;
   z-index: 999; /* Ensures it stays above other content */
-  background-color: #0e1533; /* Match the background color */
+  background-color: #1a2b5d; /* Match the background color */
   padding: 10px 64px; /* Adjust padding as needed */
   display: flex;
   width: calc(100vw - 128px);

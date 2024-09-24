@@ -1,4 +1,3 @@
-import "./PayCard.css";
 import { LuCheckCircle } from "react-icons/lu";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
@@ -44,25 +43,42 @@ const PayCard = ({
   };
 
   return (
-    <div className={`pay-card ${selected ? "selected" : ""}`}>
-      {selected && <div className="badge">⭐Most Popular</div>}
-      <div className="pay-card-header">
-        <div className="pay-title">{title}</div>
-        <div className="pay-price">{price}</div>
-        <div className="description">{description}</div>
-        <div>{duration}</div>
+    <div
+      className={`relative h-1/2 bg-white text-[#2b4099] border ${
+        selected ? "border-4 border-[#7e58fc]" : "border-gray-300"
+      } rounded-lg p-4 w-full md:w-1/5 h-4/5 flex flex-col items-center min-w-[300px]`}
+    >
+      {selected && (
+        <div className="absolute top-[-15px] left-1/2 transform -translate-x-1/2 bg-[#7e58fc] text-white font-medium px-2 py-1 rounded">
+          ⭐Most Popular
+        </div>
+      )}
+      <div className="flex flex-col items-center justify-center h-1/3 border-b border-[#1a2a4d] w-full overflow-auto">
+        <div className="font-bold text-2xl text-black">{title}</div>
+        <div className="text-[#2b4099] font-bold text-4xl">{price}</div>
+        <div className="text-gray-600 font-semibold text-lg text-center">
+          {description}
+        </div>
+        <div className="text-center">{duration}</div>
       </div>
-      {/* <div className="horizontal-grid" /> */}
-      <div className="items-list">
+      <div className="flex flex-col items-start justify-start w-full p-4">
         {items.map((item, index) => (
-          <div key={index} className="price-item">
-            <LuCheckCircle />
+          <div
+            key={index}
+            className="flex items-center text-base font-semibold my-2 w-[280px]"
+          >
+            <LuCheckCircle className="text-[#2b4099] mr-2" />
             {item}
           </div>
         ))}
       </div>
-      <div className="button-container">
-        <Button onClick={handleGetStarted}>Get Started</Button>
+      <div className="absolute bottom-4 w-full flex items-center justify-center">
+        <Button
+          onClick={handleGetStarted}
+          className="bg-[#2b4099] text-white rounded-lg py-2 px-4 w-1/2 hover:bg-[#1a2a4d] transition duration-300"
+        >
+          Get Started
+        </Button>
       </div>
     </div>
   );
