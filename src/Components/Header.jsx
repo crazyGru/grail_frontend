@@ -12,7 +12,7 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const selectedItem = useSelector((state) => state.user.selectedItem);
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user.user);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {

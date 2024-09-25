@@ -3,7 +3,7 @@ import right from "../right.png";
 
 const MainSlide = ({ title, description, children }) => {
   return (
-    <div className="relative flex items-center justify-center w-screen h-screen bg-gradient-to-b from-[#2b4099] to-[#0e1533] border-b-2 border-black">
+    <div className="relative flex items-center justify-center w-full h-screen bg-gradient-to-b from-[#2b4099] to-[#0e1533]">
       <div className="flex flex-col items-center justify-center text-center w-full max-w-4xl mx-auto">
         <div className="text-white font-extrabold text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4">
           {title}

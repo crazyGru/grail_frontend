@@ -54,7 +54,6 @@
   padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
   height: 0;
   overflow: hidden;
-  border-bottom: 2px solid #1a2b5d;
 }
 
 .responsive-iframe iframe {

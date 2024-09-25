@@ -15,3 +15,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* Custom Scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+  width: 0px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the thumb on hover */
+}
+
+/* Custom Scrollbar for Firefox */
+body {
+  scrollbar-width: thin; /* Options: auto, thin, none */
+  scrollbar-color: #888 #f1f1f1; /* thumb color and track color */
+}
