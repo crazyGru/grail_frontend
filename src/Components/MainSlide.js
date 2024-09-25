@@ -15,12 +15,12 @@ const MainSlide = ({ title, description, children }) => {
       </div>
       <img
         src={left}
-        className="absolute left-0 bottom-0 w-1/3 md:w-1/4 lg:w-1/5"
+        className="absolute left-0 bottom-0 w-1/3"
         alt="left_logo"
       />
       <img
         src={right}
-        className="absolute right-0 bottom-0 w-1/3 md:w-1/4 lg:w-1/5"
+        className="absolute right-0 bottom-0 w-1/3"
         alt="right_logo"
       />
     </div>
