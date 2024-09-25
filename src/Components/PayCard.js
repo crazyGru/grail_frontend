@@ -44,16 +44,16 @@ const PayCard = ({
 
   return (
     <div
-      className={`relative h-1/2 bg-white text-[#2b4099] border ${
-        selected ? "border-4 border-[#7e58fc]" : "border-gray-300"
-      } rounded-lg p-4 w-full md:w-1/5 h-4/5 flex flex-col items-center min-w-[300px]`}
+      className={`relative bg-white text-[#2b4099]  ${
+        selected ? "border-2 border-[#7e58fc]" : "border-gray-300"
+      } min-w-[280px] min-h-[600px] border p-2 py-4 w-4/5 rounded-md md:w-1/5 h-auto flex flex-col items-center`}
     >
       {selected && (
         <div className="absolute top-[-15px] left-1/2 transform -translate-x-1/2 bg-[#7e58fc] text-white font-medium px-2 py-1 rounded">
           ⭐Most Popular
         </div>
       )}
-      <div className="flex flex-col items-center justify-center h-1/3 border-b border-[#1a2a4d] w-full overflow-auto">
+      <div className="flex flex-col items-center justify-center h-1/3 border-b border-[#1a2a4d] w-full overflow-auto basis-[200px]">
         <div className="font-bold text-2xl text-black">{title}</div>
         <div className="text-[#2b4099] font-bold text-4xl">{price}</div>
         <div className="text-gray-600 font-semibold text-lg text-center">

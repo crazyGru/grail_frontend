@@ -12,8 +12,8 @@ const Pricing = () => {
       <MainSlide
         title="Pricing Plans Tailored for Your Photo Booth Business"
         description="Get the perfect solution for your photo booth business with flexible pricing options that cater to events of all sizes and durations. Whether you need a one-time setup or ongoing access, we’ve got you covered."
-      ></MainSlide>
-      <div className="h-screen flex items-center justify-evenly">
+      />
+      <div className="w-full flex flex-col md:flex-row gap-2 md:gap-4 lg:gap-8 items-center sm:overflow-auto xl:justify-center py-4 sm:p-4">
         {pricingPlans.map((plan) => (
           <PayCard
             key={plan.id}

@@ -1,12 +1,15 @@
-.container {
+/* .container {
   padding: 20px 0px;
   width: 80vw;
   position: relative;
   display: flex;
   font-size: large;
+} */
+
+.container_t {
 }
 
-.container .item {
+.container_t .item {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -25,38 +28,9 @@
   }
 }
 
-.container .item.time {
+.container_t .item.time {
   align-items: flex-end;
   text-align: right;
-}
-
-.container .h-divider {
-  left: calc(50% - 2px);
-  top: 0;
-  position: absolute;
-  height: 100%;
-  width: 4px;
-  background-color: #15357d;
-}
-
-.container .circle {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  width: 48px;
-  height: 48px;
-  background-color: #d9d9d9;
-  border-radius: 40px;
-  display: flex;
-  align-items: center;
-  justify-items: center;
-}
-
-.container .circle.small {
-  width: 30px;
-  height: 30px;
-  background-color: #15357d;
 }
 
 /* .item {

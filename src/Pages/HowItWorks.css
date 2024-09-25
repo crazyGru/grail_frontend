@@ -5,8 +5,8 @@
 }
 
 .why-choose-us {
-  width: 100vw;
-  padding: 40px 0px;
+  width: 100%;
+  padding: 40px 0;
   background-color: #2b4099;
   display: flex;
   flex-direction: column;
@@ -16,10 +16,11 @@
 
 h1 {
   color: #f8f8ed;
+  font-size: 2rem; /* Responsive font size */
 }
 
 .why-choose-us-title {
-  font-size: 52px;
+  font-size: 3rem; /* Responsive font size */
   color: #f8f8ed;
   font-weight: 500;
   padding-bottom: 40px;
@@ -27,13 +28,13 @@ h1 {
 
 .card_header {
   font-weight: 900;
-  font-size: x-large;
+  font-size: 1.5rem; /* Responsive font size */
   margin-bottom: 12px;
 }
 
 .card_title {
   font-weight: 500;
-  font-size: medium;
+  font-size: 1.25rem; /* Responsive font size */
   color: #2b4099;
   width: auto;
   text-align: justify;
@@ -42,7 +43,8 @@ h1 {
 .reason_card {
   background-color: #f8f8ed;
   color: #2b4099;
-  width: calc(25vw - 72px);
+  width: calc(100% - 72px); /* Full width with padding */
+  max-width: 300px; /* Max width for larger screens */
   border-radius: 18px;
   border: 2px solid white;
   padding: 36px;
@@ -54,7 +56,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  height: max-content;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .slide-steps {
@@ -62,18 +64,14 @@ h1 {
   background-color: #f8f8ed;
 }
 
-.slide-step {
-  display: flex;
-}
-
 .step-header {
   font-weight: 700;
-  font-size: 70px;
+  font-size: 2rem; /* Responsive font size */
   color: #2b4099;
 }
 
 .step-content {
-  font-size: 24px;
+  font-size: 1.5rem; /* Responsive font size */
   margin-top: 24px;
 }
 
@@ -86,7 +84,7 @@ h1 {
 }
 
 .slide-button {
-  width: 100vw;
+  width: 100%;
   background-color: #f8f8ed;
   padding: 20px;
   display: flex;
@@ -104,9 +102,10 @@ h1 {
   border: 1px solid purple;
   cursor: pointer;
   font-size: large;
-  margin: 20px 0px;
+  margin: 20px 0;
 }
 
 .step-img {
-  height: 40vw;
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Responsive image */
 }

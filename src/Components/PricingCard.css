@@ -1,8 +1,9 @@
 .pricing-card {
   border: 1px solid #2b4099;
   padding: 10px;
-  width: 20vw;
-  height: 540px;
+  width: 100%; /* Full width */
+  max-width: 300px; /* Max width for larger screens */
+  height: auto; /* Allow height to adjust */
   text-align: left;
   background-color: #f9f9f9;
   cursor: pointer;
@@ -17,13 +18,13 @@
 
 .pricing-title {
   font-weight: 700;
-  font-size: 30px;
+  font-size: 1.5rem; /* Responsive font size */
   color: black;
 }
 
 .pricing-price {
   font-weight: 700;
-  font-size: 52px;
+  font-size: 2rem; /* Responsive font size */
   color: #2b4099;
   padding-bottom: 20px;
   margin-bottom: 12px;
@@ -36,7 +37,7 @@
 }
 
 .pricing-items li {
-  font-size: 18px;
+  font-size: 1rem; /* Responsive font size */
   color: #333;
   margin-bottom: 10px;
 }

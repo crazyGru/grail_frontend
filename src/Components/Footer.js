@@ -7,14 +7,14 @@ import right from "../right.png";
 
 const Footer = () => {
   return (
-    <div className="relative bg-black text-white py-20 flex flex-col items-start px-10">
+    <div className="relative bg-black text-white py-10 flex flex-col items-center md:items-start px-4 md:px-10 overflow-hidden">
       <img
         src={logo}
         className="h-6 cursor-pointer mb-4"
         alt="logo"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       />
-      <div className="flex flex-col md:flex-row md:justify-between w-full max-w-4xl px-4">
+      <div className="flex flex-col md:flex-row md:justify-between w-full max-w-4xl">
         <div className="info-container flex flex-col space-y-2">
           <div className="info-item flex items-center">
             <FaLocationDot className="icon mr-2" />
@@ -36,7 +36,7 @@ const Footer = () => {
       </div>
       <img
         src={right}
-        className="md:block h-[80%] ml-4 absolute right-0 bottom-0"
+        className="hidden md:block w-1/3 ml-4 absolute right-0 bottom-0"
         alt="img"
       />
     </div>

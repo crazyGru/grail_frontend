@@ -3,7 +3,7 @@ const headerItems = [
   { name: "How It Works", link: "/how-it-works" },
   { name: "Case Study", link: "/case-study" },
   { name: "Pricing", link: "/pricing" },
-  { name: "Order Lenticular", link: "/" },
+  { name: "Products", link: "/" },
 ];
 
 export { headerItems };

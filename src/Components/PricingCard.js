@@ -10,7 +10,7 @@ const PricingCard = ({ title, price, items }) => {
 
   return (
     <div
-      className="pricing-card border border-[#2b4099] p-2 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 h-auto bg-[#f9f9f9] cursor-pointer transition-transform duration-300 hover:bg-[#e0e0e0] hover:shadow-lg hover:scale-105"
+      className="min-w-[300px] min-h-[360px] rounded-md border border-[#2b4099] p-2 w-4/5 sm:w-1/5 h-auto bg-[#f9f9f9] cursor-pointer transition-transform duration-300 hover:bg-[#e0e0e0] hover:shadow-lg hover:scale-105"
       onClick={handleClick}
     >
       <div className="card-header text-center mb-4 border-b border-[#2b4099] pb-2">
